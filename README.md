@@ -8,25 +8,25 @@ Exit of the window is with the ``q`` key or ``Esc``.
 
 Running either file will open a new window and access your first index camera
 
-Different modes change the video feed:
+Different keys change the video feed:
 
 In the first file:
 
-* Pressing "N" turns the footage back to normal
-* Pressing "E" turns on edge detection
-* Pressing "B" blurs the feed
-* Pressing "C" turns on corner detection
-* Pressing "F" goes through all flipped orientations
-* Pressing "M" goes through some color modes (Default, Inverse, BGR2HSV, and Grayscale)
+* Pressing ``N`` turns the footage back to normal
+* Pressing ``E`` turns on edge detection
+* Pressing ``B`` blurs the feed
+* Pressing ``C`` turns on corner detection
+* Pressing ``F`` goes through all flipped orientations
+* Pressing ``M`` goes through some color modes (Default, Inverse, BGR2HSV, and Grayscale)
 
 In the second file:
 
-* Pressing "N" turns the footage back to normal
-* Pressing "M" goes through some color modes (Default, Inverse, BGR2HSV, and Grayscale)
-* Pressing "B" brightens the original footage
-* Pressing "D" darkens the original footage
-* Pressing "H" turns up the contrast of the original footage
-* Pressing "L" turns down the contrast of the original footage
+* Pressing ``N`` turns the footage back to normal
+* Pressing ``M`` goes through some color modes (Default, Inverse, BGR2HSV, and Grayscale)
+* Pressing ``B`` brightens the original footage
+* Pressing ``D`` darkens the original footage
+* Pressing ``H`` turns up the contrast of the original footage
+* Pressing ``L`` turns down the contrast of the original footage
 
 \*Note that only the color mode and flip can be combined with the other filter\*
 
