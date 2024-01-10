@@ -13,7 +13,7 @@ feature_params = dict(
     blockSize = 9
     )
 
-NO_FLIP = 10
+NO_FLIP = None
 FLIP_HORIZONTAL = 1
 FLIP_VERTICAL = 0
 FLIP_ON_BOTH_AXES = -1
@@ -44,34 +44,36 @@ ch = ""
 
 while ch not in exit_chars:
 
-    read, frame = capture.read()
-    if flip != NO_FLIP:
-        frame = cv2.flip(frame, flip)
-    
-    if cm != DEFAULT_COLOR_MODE:
-        frame = cv2.cvtColor(frame, cm)
+    read, frame = capture.read()  
+    result = frame
 
     if read:
-        if image_filter == NORMAL:
-            result = frame
 
-        elif image_filter == CANNY:
+        if flip != NO_FLIP:
+            result = cv2.flip(result, flip)
+    
+        if cm != DEFAULT_COLOR_MODE:
+            if image_filter != FEATURES:
+                result = cv2.cvtColor(result, cm)
+
+        if image_filter == CANNY:
             # Applying Canny Edge Detect Filter
-            result = cv2.Canny(frame, 80, 200)
+            result = cv2.Canny(result, 80, 200)
 
         elif image_filter == BLUR:
             # Applying Blur Filter
-            result = cv2.blur(frame, (40, 40))
+            result = cv2.blur(result, (40, 40))
 
         elif image_filter == FEATURES:
-            result = frame
             frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             corners = cv2.goodFeaturesToTrack(frame_gray, **feature_params)
             
             if corners is not None:
                 for x, y in np.float32(corners).reshape(-1, 2):
                     cv2.circle(result, (int(x), int(y)), 10, (0, 255, 0), 1)
-
+        
+        # Do nothing if image_filter is NORMAL
+                    
         cv2.imshow(win_name, result)
         
     ch = cv2.waitKey(1) & 0xFF
@@ -91,12 +93,18 @@ while ch not in exit_chars:
         flip = FLIP_ARRAY[f_index]
 
     elif ch == ord("M") or ch == ord("m"): # m for "color _M_ode"
-        cm_index += 1
-        cm_index &= 3
-        cm = COLOR_MODES_ARRAY[cm_index]
+        if image_filter != FEATURES:
+            cm_index += 1
+            cm_index &= 3
+            cm = COLOR_MODES_ARRAY[cm_index]
 
     elif ch == ord("N") or ch == ord("n"): # n for "normal"
         image_filter = NORMAL
-        
+
+        cm_index = DEFAULT_COLOR_MODE
+        cm = COLOR_MODES_ARRAY[cm_index]
+
+        f_index = 0
+        flip = FLIP_ARRAY[f_index]
 capture.release()
 cv2.destroyAllWindows()
