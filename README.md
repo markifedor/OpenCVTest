@@ -31,29 +31,38 @@ In the second file:
 \*Note that only the color mode and flip can be combined with the other filter\*
 
 ## Installation Process
-### Install Pip Environment
-make folder:
 
-    mkdir <folder>
+### Linux
+#### Setup Virtual Environment
 
-Go to folder:
+```sh
+python -m venv .venv
+source .venv/bin/activate
+```
 
-    cd <folder>
+#### Install OpenCV for Python and Utility Libraries
 
-Make virtual environment:
-    
-    pip install pipenv
-    pipenv install
-    pipenv shell
+```sh
+pip install -r requirements.txt
+```
 
-### Install OpenCV for Python and Utility Libraries
+### Windows
+#### Setup Virtual Environment
 
-    pipenv install opencv-python
-    pipenv install numpy matplotlib imutils
+```Powershell
+python -m venv .venv
+.\venv\Scripts\activate
+```
+> **Note:** If PowerShell blocks activation scripts, run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` once.
 
-## First OpenCV Example
 
-### Create example file:
+#### Install OpenCV for Python and Utility Libraries
+
+```Powershell
+pip install -r requirements.txt
+```
+
+### Create new example file
     
 For example ``CV_Test.py``
 
