@@ -30,6 +30,8 @@ In the second file:
 
 \*Note that only the color mode and flip can be combined with the other filter\*
 
+![Camera Feed with Corner Detection on](Images/CornerDetect.png "Camera Feed with Corner Detection on")
+
 ## Installation Process
 
 ### Linux
