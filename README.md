@@ -33,33 +33,35 @@ In the second file:
 ## Installation Process
 
 ### Linux
-#### Setup Virtual Environment
+
+#### Setup Virtual Environment (Linux)
 
 ```sh
-python -m venv .venv
-source .venv/bin/activate
+$ python -m venv .venv
+$ source .venv/bin/activate
 ```
 
-#### Install OpenCV for Python and Utility Libraries
+#### Install OpenCV for Python and Utility Libraries (Linux)
 
 ```sh
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ### Windows
-#### Setup Virtual Environment
+
+#### Setup Virtual Environment (Windows)
 
 ```Powershell
-python -m venv .venv
-.\venv\Scripts\activate
+> python -m venv .venv
+> .\venv\Scripts\activate
 ```
 > **Note:** If PowerShell blocks activation scripts, run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` once.
 
 
-#### Install OpenCV for Python and Utility Libraries
+#### Install OpenCV for Python and Utility Libraries (Windows)
 
 ```Powershell
-pip install -r requirements.txt
+> pip install -r requirements.txt
 ```
 
 ### Create new example file
